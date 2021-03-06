@@ -21,7 +21,7 @@ local function ChangeDebugMode()
 	else
 	
 		GAME_TIME = 40
-		ROUNDS_PER_MAP = 12
+		ROUNDS_PER_MAP = 16
 		ROUND_TIME = 300
 		SWAP_TEAMS_EVERY_ROUND = 1
 		RunConsoleCommand("HUNTER_BLINDLOCK_TIME", "40")

@@ -67,8 +67,9 @@ MULTIKILLS_TABLE = {
 }
 
 -- Maximum time (in minutes) for this fretta gamemode (Default: 30)
+-- All these vars dont matter here and are actually getting applied in sv_debug.lua
 GAME_TIME = 40
-ROUNDS_PER_MAP = 12
+ROUNDS_PER_MAP = 16
 ROUND_TIME = 300
 SWAP_TEAMS_EVERY_ROUND = 1
 CreateConVar("HUNTER_BLINDLOCK_TIME", "40", FCVAR_REPLICATED)
