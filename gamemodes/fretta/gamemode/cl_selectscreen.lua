@@ -83,8 +83,8 @@ function PANEL:AddPanelButton( icon, title, pnlfnc )
 	
 	Derma_Hook( btn, "Paint", 				"Paint", 		"PanelButton" )
 	Derma_Hook( btn, "PaintOver",			"PaintOver", 	"PanelButton" )
-	//Derma_Hook( btn, "ApplySchemeSettings", "Scheme", 		"PanelButton" )
-	//Derma_Hook( btn, "PerformLayout", 		"Layout", 		"PanelButton" )
+	--Derma_Hook( btn, "ApplySchemeSettings", "Scheme", 		"PanelButton" )
+	--Derma_Hook( btn, "PerformLayout", 		"Layout", 		"PanelButton" )
 	
 	local fnClick = function()
 		
@@ -95,7 +95,7 @@ function PANEL:AddPanelButton( icon, title, pnlfnc )
 			btn.pPanelFnc = nil
 		end
 	
-		// Toggle off
+		-- Toggle off
 		if ( btn.m_bSelected ) then self:ClearSelectedPanel() return end 
 		
 		self:ClearSelectedPanel()

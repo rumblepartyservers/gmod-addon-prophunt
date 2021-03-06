@@ -1,8 +1,8 @@
-// Create new class
+-- Create new class
 local CLASS = {}
 
 
-// Some settings for the class
+-- Some settings for the class
 CLASS.DisplayName			= "Prop"
 CLASS.WalkSpeed 			= 250
 CLASS.CrouchedWalkSpeed 	= 0.2
@@ -11,13 +11,13 @@ CLASS.DuckSpeed				= 0.2
 CLASS.DrawTeamRing			= false
 CLASS.JumpPower				= 240
 
-// Called by spawn and sets loadout
+-- Called by spawn and sets loadout
 function CLASS:Loadout(pl)
-	// Props don't get anything
+	-- Props don't get anything
 end
 
 
-// Called when player spawns with this class
+-- Called when player spawns with this class
 function CLASS:OnSpawn(pl)
 	pl:SetColor( Color(255, 255, 255, 0))
 	
@@ -30,7 +30,7 @@ function CLASS:OnSpawn(pl)
 end
 
 
-// Called when a player dies with this class
+-- Called when a player dies with this class
 function CLASS:OnDeath(pl, attacker, dmginfo)
 	pl:RemoveProp()
 	
@@ -44,5 +44,5 @@ function CLASS:OnDeath(pl, attacker, dmginfo)
 end
 
 
-// Register
+-- Register
 player_class.Register("Prop", CLASS)

@@ -117,7 +117,7 @@ function GM:UpdateHUD_Observer( bWaitingToSpawn, InRound, ObserveMode, ObserveTa
 	end
 	
 	if ( ObserveMode == OBS_MODE_DEATHCAM || ObserveMode == OBS_MODE_FREEZECAM ) then
-		txt = "You Died!" // were killed by?
+		txt = "You Died!" -- were killed by?
 	end
 	
 	if ( txt ) then
@@ -226,7 +226,7 @@ function GM:UpdateHUD_Alive( InRound )
 end
 
 function GM:UpdateHUD_AddedTime( iTimeAdded )
-	// to do or to override, your choice
+	-- to do or to override, your choice
 end
 usermessage.Hook( "RoundAddedTime", function( um ) if( GAMEMODE && um ) then GAMEMODE:UpdateHUD_AddedTime( um:ReadFloat() ) end end )
 

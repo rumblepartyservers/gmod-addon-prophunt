@@ -10,7 +10,7 @@ function DrawMapZonesBoundingBox( _pos1, _pos2 )
 	local _textureStart = 0
 	local _textureEnd = 0
 
-	// Outside surfaces
+	-- Outside surfaces
 	render.SetMaterial( MAP_ZONES_POINTS )
 	render.DrawBeam( _pos1, Vector( _pos1.x, _pos2.y, _pos2.z ), _size, _textureStart, _textureEnd, COLOR_WHITE )
 	render.DrawBeam( _pos1, Vector( _pos2.x, _pos1.y, _pos2.z ), _size, _textureStart, _textureEnd, COLOR_WHITE )
@@ -23,7 +23,7 @@ function DrawMapZonesBoundingBox( _pos1, _pos2 )
 	
 
 	
-	// Shape
+	-- Shape
 	render.SetMaterial( MAP_ZONES_LASER )
 	render.DrawBeam( _pos1, Vector( _pos1.x, _pos2.y, _pos1.z ), _size, _textureStart, _textureEnd, COLOR_WHITE )
 	render.DrawBeam( _pos1, Vector( _pos2.x, _pos1.y, _pos1.z ), _size, _textureStart, _textureEnd, COLOR_WHITE )

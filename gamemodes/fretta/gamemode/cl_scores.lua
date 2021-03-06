@@ -47,12 +47,12 @@ function GM:AddScoreboardAvatar( ScoreBoard )
 		return av,butt
 	end
 	
-	ScoreBoard:AddColumn( "", 32, f, 360 ) // Avatar
+	ScoreBoard:AddColumn( "", 32, f, 360 ) -- Avatar
 
 end
 
 function GM:AddScoreboardSpacer( ScoreBoard, iSize )
-	ScoreBoard:AddColumn( "", 16 ) // Gap
+	ScoreBoard:AddColumn( "", 16 ) -- Gap
 end
 
 function GM:AddScoreboardName( ScoreBoard )
@@ -109,7 +109,7 @@ function GM:AddScoreboardMute( ScoreBoard )
 
 end
 	
-// THESE SHOULD BE THE ONLY FUNCTION YOU NEED TO OVERRIDE
+-- THESE SHOULD BE THE ONLY FUNCTION YOU NEED TO OVERRIDE
 
 function GM:PositionScoreboard( ScoreBoard )
 
@@ -142,8 +142,8 @@ end
 
 function GM:CreateScoreboard( ScoreBoard )
 
-	// This makes it so that it's behind chat & hides when you're in the menu
-	// Disable this if you want to be able to click on stuff on your scoreboard
+	-- This makes it so that it's behind chat & hides when you're in the menu
+	-- Disable this if you want to be able to click on stuff on your scoreboard
 	
 	ScoreBoard:ParentToHUD()
 	ScoreBoard:MakePopup()
@@ -171,7 +171,7 @@ function GM:CreateScoreboard( ScoreBoard )
 	self:AddScoreboardPing( ScoreBoard )				-- 6
 	self:AddScoreboardMute( ScoreBoard )				-- 7
 	
-	// Here we sort by these columns (and descending), in this order. You can define up to 4
+	-- Here we sort by these columns (and descending), in this order. You can define up to 4
 	ScoreBoard:SetSortColumns( { 4, true, 5, false, 3, false } )
 
 end

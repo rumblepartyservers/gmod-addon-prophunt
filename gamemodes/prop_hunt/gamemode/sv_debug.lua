@@ -182,7 +182,7 @@ function GameDebugMode(ply)
 		ServerLog("[SpawnCounter] There are "..Count.." total spawns\n")
 		BroadcastMsg("[SpawnCounter] There are "..Count.." total spawns")
 		for k,v in pairs(TableOfSpawns) do
-			local _addition = ents.Create( "prop_dynamic" ); //debug_entity
+			local _addition = ents.Create( "prop_dynamic" ); --debug_entity
 			_addition:SetModel( "models/player.mdl" );
 			_addition:SetPos( v:GetPos() );
 			_addition:SetAngles( v:GetAngles() );

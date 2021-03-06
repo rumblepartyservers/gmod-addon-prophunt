@@ -62,8 +62,8 @@ function PANEL:AddText( txt, color )
 	lbl:ApplySchemeSettings()
 	lbl:SetText( txt )
 	
-	if( string.Left( txt , 1 ) == "#" && !color ) then color = GAMEMODE.DeathNoticeDefaultColor end // localised ent death
-	if( GAMEMODE.DeathNoticeTextColor && !color ) then color = GAMEMODE.DeathNoticeTextColor end // something else
+	if( string.Left( txt , 1 ) == "#" && !color ) then color = GAMEMODE.DeathNoticeDefaultColor end -- localised ent death
+	if( GAMEMODE.DeathNoticeTextColor && !color ) then color = GAMEMODE.DeathNoticeTextColor end -- something else
 	if ( !color ) then color = color_white end
 	
 	lbl:SetTextColor( color )

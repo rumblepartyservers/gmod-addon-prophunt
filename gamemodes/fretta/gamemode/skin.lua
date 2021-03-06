@@ -218,8 +218,8 @@ end
 ---------------------------------------------------------*/
 function SKIN:PaintScorePanelHeader( panel )
 
-	//surface.SetDrawColor( panel.cTeamColor )	
-	//panel:DrawFilledRect()
+	--surface.SetDrawColor( panel.cTeamColor )	
+	--panel:DrawFilledRect()
 	
 end
 
@@ -259,9 +259,9 @@ function SKIN:PaintScorePanel( panel )
 	render.UpdateScreenEffectTexture()
 	surface.DrawTexturedRect( x*-1, y*-1, ScrW(), ScrH() )
 	
-	//matBlurScreen:SetFloat( "$blur", 3 )
-	//render.UpdateScreenEffectTexture()
-	//surface.DrawTexturedRect( x*-1, y*-1, ScrW(), ScrH() )
+	--matBlurScreen:SetFloat( "$blur", 3 )
+	--render.UpdateScreenEffectTexture()
+	--surface.DrawTexturedRect( x*-1, y*-1, ScrW(), ScrH() )
 		
 	draw.RoundedBox( 8, 0, 8, panel:GetWide(), panel:GetTall()-8, Color( 200, 200, 200, 150 ) )
 	

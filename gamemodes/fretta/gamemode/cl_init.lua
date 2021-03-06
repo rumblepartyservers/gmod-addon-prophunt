@@ -91,10 +91,10 @@ function GM:HUDShouldDraw( name )
 
 	if GAMEMODE.ScoreboardVisible then return false end
 	
-	// commented out until HUD elements are made
-	//for k, v in pairs{"CHudHealth", "CHudBattery", "CHudAmmo", "CHudSecondaryAmmo"} do
-	//	if name == v then return false end 
-  	//end 
+	-- commented out until HUD elements are made
+	--for k, v in pairs{"CHudHealth", "CHudBattery", "CHudAmmo", "CHudSecondaryAmmo"} do
+	--	if name == v then return false end 
+  	--end 
 	
 	if name == "CHudDamageIndicator" and not LocalPlayer():Alive() then
 		return false
@@ -105,13 +105,13 @@ function GM:HUDShouldDraw( name )
 end
 
 function GM:OnSpawnMenuOpen()
-	RunConsoleCommand( "lastinv" ); // Fretta is derived from base and has no spawn menu, so give it a use, make it lastinv.
+	RunConsoleCommand( "lastinv" ); -- Fretta is derived from base and has no spawn menu, so give it a use, make it lastinv.
 end
 
 
 function GM:PlayerBindPress( pl, bind, down )
 
-	// Redirect binds to the spectate system
+	-- Redirect binds to the spectate system
 	if ( pl:IsObserver() && down ) then
 	
 		if ( bind == "+jump" ) then 	RunConsoleCommand( "spec_mode" )	end

@@ -101,6 +101,6 @@ end
 
 function GM:PaintSplashScreen( w, h )
 
-	// Customised splashscreen render here ( The center bit! )
+	-- Customised splashscreen render here ( The center bit! )
 
 end

@@ -14,12 +14,12 @@ CLASS.CanUseFlashlight      = true
 CLASS.MaxHealth				= 100
 CLASS.StartHealth			= 100
 CLASS.StartArmor			= 0
-CLASS.RespawnTime           = 0 // 0 means use the default spawn time chosen by gamemode
+CLASS.RespawnTime           = 0 -- 0 means use the default spawn time chosen by gamemode
 CLASS.DropWeaponOnDie		= false
 CLASS.TeammateNoCollide 	= true
-CLASS.AvoidPlayers			= true // Automatically avoid players that we're no colliding
-CLASS.Selectable			= true // When false, this disables all the team checking
-CLASS.FullRotation			= false // Allow the player's model to rotate upwards, etc etc
+CLASS.AvoidPlayers			= true -- Automatically avoid players that we're no colliding
+CLASS.Selectable			= true -- When false, this disables all the team checking
+CLASS.FullRotation			= false -- Allow the player's model to rotate upwards, etc etc
 
 function CLASS:Loadout( pl )
 

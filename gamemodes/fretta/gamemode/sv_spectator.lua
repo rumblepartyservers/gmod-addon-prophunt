@@ -6,7 +6,7 @@
 ---------------------------------------------------------*/
 function GM:GetValidSpectatorModes( ply )
 
-	// Note: Override this and return valid modes per player/team
+	-- Note: Override this and return valid modes per player/team
 
 	return GAMEMODE.ValidSpectatorModes
 
@@ -18,7 +18,7 @@ end
 ---------------------------------------------------------*/
 function GM:GetValidSpectatorEntityNames( ply )
 
-	// Note: Override this and return valid entity names per player/team
+	-- Note: Override this and return valid entity names per player/team
 
 	return GAMEMODE.ValidSpectatorEntities
 

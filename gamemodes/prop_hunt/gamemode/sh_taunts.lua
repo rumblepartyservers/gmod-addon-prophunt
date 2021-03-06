@@ -1,13 +1,13 @@
-// If you loose one of these will be played
-// Set blank to disable
+-- If you loose one of these will be played
+-- Set blank to disable
 LOSS_SOUNDS = {
 	"vo/announcer_failure.wav",
 	"vo/announcer_you_failed.wav"
 }
 
 
-// Sound files hunters can taunt with
-// You need at least 2 files listed here
+-- Sound files hunters can taunt with
+-- You need at least 2 files listed here
 HUNTER_TAUNTS = {
 	{"taunts/hunters/h1-1.mp3", "I will look for you", "7", true},
 	{"taunts/hunters/h1-2.mp3", "Watching you", "5", true},
@@ -66,8 +66,8 @@ HUNTER_TAUNTS = {
 }
 
 
-// Sound files props can taunt with
-// You need at least 2 files listed here
+-- Sound files props can taunt with
+-- You need at least 2 files listed here
 --  {"File path", "Name", "LengthInSeconds", ShowInTauntMenu<True/False>}
 PROP_TAUNTS = {
 
@@ -319,8 +319,8 @@ PROP_TAUNTS = {
 	{"taunts/props/1-251.mp3", "You are a pirate!", "12", true},
 }
 
-// If you win, one of these will be played
-// Set blank to disable
+-- If you win, one of these will be played
+-- Set blank to disable
 VICTORY_SOUNDS = {
 	"vo/announcer_success.wav",
 	"vo/announcer_victory.wav",

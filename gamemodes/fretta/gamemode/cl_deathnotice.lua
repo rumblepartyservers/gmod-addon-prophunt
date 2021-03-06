@@ -215,8 +215,8 @@ function GM:AddPlayerAction( ... )
 		pnl:AddText( v )
 	end
 	
-	// The rest of the arguments should be re-thought.
-	// Just create the notify and add them instead of trying to fit everything into this function!???
+	-- The rest of the arguments should be re-thought.
+	-- Just create the notify and add them instead of trying to fit everything into this function!???
 	
 	g_DeathNotify:AddItem( pnl )
 	

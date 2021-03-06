@@ -22,16 +22,16 @@ end
 
 function meta:GetPlayerClass()
 
-	// Class that has been set using SetClass
+	-- Class that has been set using SetClass
 	local ClassName = self:GetPlayerClassName()
 	local c = player_class.Get( ClassName )
 	if ( c ) then return c end
 	
-	// Class based on their Team
+	-- Class based on their Team
 	local c = player_class.Get( self:Team() )
 	if ( c ) then return c end	
 	
-	// If all else fails, use the default
+	-- If all else fails, use the default
 	local c = player_class.Get( "Default" )
 	if ( c ) then return c end	
 
@@ -52,7 +52,7 @@ function meta:CheckPlayerClassOnSpawn()
 
 	local Classes = team.GetClass( self:Team() )
 
-	// The player has requested to spawn as a new class
+	-- The player has requested to spawn as a new class
 	
 	if ( self.m_SpawnAsClass ) then
 
@@ -61,20 +61,20 @@ function meta:CheckPlayerClassOnSpawn()
 		
 	end
 	
-	// Make sure the player isn't using the wrong class
+	-- Make sure the player isn't using the wrong class
 	
 	if ( Classes && #Classes > 0 && !table.HasValue( Classes, self:GetPlayerClassName() ) ) then
 		self:SetRandomClass()
 	end
 	
-	// If the player is on a team with only one class, 
-	// make sure we're that one when we spawn.
+	-- If the player is on a team with only one class, 
+	-- make sure we're that one when we spawn.
 	
 	if ( Classes && #Classes == 1 ) then
 		self:SetPlayerClass( Classes[1] )
 	end
 	
-	// No defined classes, use default class
+	-- No defined classes, use default class
 	
 	if ( !Classes || #Classes == 0 ) then
 		self:SetPlayerClass( "Default" )
@@ -114,7 +114,7 @@ function meta:CallClassFunction( name, ... )
 	if ( !Class ) then return end
 	if ( !Class[name] ) then return end
 	
-	//print( "Class Function: ", self:GetPlayerClassName(), name )
+	--print( "Class Function: ", self:GetPlayerClassName(), name )
 	
 	return Class[name]( Class, self, ... )
 	
@@ -132,14 +132,14 @@ end
 
 function meta:OnPlayerModel()
 
-	// If the class forces a player model, use that.. 
-	// If not, use our preferred model..
+	-- If the class forces a player model, use that.. 
+	-- If not, use our preferred model..
 	
 	local Class = self:GetPlayerClass()
 	if ( Class && Class.PlayerModel ) then 
 	
 		local mdl = Class.PlayerModel
-		if( type( mdl ) == "table" ) then // table of models, set random
+		if( type( mdl ) == "table" ) then -- table of models, set random
 			mdl = table.Random( Class.PlayerModel );
 		end
 		
@@ -165,7 +165,7 @@ end
 function meta:CanUseFlashlight()
 
 	if self.m_bFlashlight == nil then
-		return true // Default to true unless modified by the player class
+		return true -- Default to true unless modified by the player class
 	end
 
 	return self.m_bFlashlight

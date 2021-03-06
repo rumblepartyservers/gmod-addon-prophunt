@@ -39,7 +39,7 @@ function PANEL:PerformLayout()
 	end
 	self:SetSize( x, tallest )
 	else
-		// todo.
+		-- todo.
 	end
 
 end

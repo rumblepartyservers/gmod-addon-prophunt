@@ -146,7 +146,7 @@ function PANEL:UpdateColumn( i, col, pLine )
 	if ( !col.fncValue ) then return end
 	
 	pLine.UpdateTime[i] = pLine.UpdateTime[i] or 0
-	if ( col.UpdateRate == 0 && pLine.UpdateTime[i] != 0 ) then return end // 0 = only update once
+	if ( col.UpdateRate == 0 && pLine.UpdateTime[i] != 0 ) then return end -- 0 = only update once
 	if ( pLine.UpdateTime[i] > RealTime() ) then return end
 	
 	pLine.UpdateTime[i] = RealTime() + col.UpdateRate
