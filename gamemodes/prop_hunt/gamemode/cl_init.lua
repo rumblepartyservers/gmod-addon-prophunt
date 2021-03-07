@@ -169,15 +169,26 @@ function GM:CalcView(pl, origin, angles, fov)
  	
  	-- Give the active weapon a go at changing the viewmodel position 
 	if pl:Team() == TEAM_PROPS && pl:Alive() then
-
 		for _,pr in pairs(ents.FindByClass("ph_prop")) do
 			if pr:GetOwner() == pl then
 				pr:SetPos(pl:GetPos() - Vector(0, 0, pr:OBBMins().z))
+				break
 			end
 		end
 
-		view.origin = origin + Vector(0, 0, hullz - 60) + (angles:Forward() * -80)
-	else
+		-- old
+		-- view.origin = origin + Vector(0, 0, hullz - 60) + (angles:Forward() * -80)
+
+		local trace = {}
+
+		trace.start = origin + Vector(0, 0, hullz - 60)
+		trace.endpos = origin + Vector(0, 0, hullz - 60) + (angles:Forward() * -80)
+		trace.filter = ents.FindByClass("ph_prop")
+		table.insert(trace.filter, pl)
+
+		local tr = util.TraceLine(trace)
+		view.origin = tr.HitPos
+	elseif pl:Team() == TEAM_HUNTERS && pl:Alive() then
 	 	local wep = pl:GetActiveWeapon() 
 	 	if wep && wep != NULL then 
 	 		local func = wep.GetViewModelPosition 
