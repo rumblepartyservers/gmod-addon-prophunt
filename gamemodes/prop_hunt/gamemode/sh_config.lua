@@ -82,7 +82,7 @@ CreateConVar( "HUNTER_FIRE_PENALTY", "5", FCVAR_REPLICATED)
 CreateConVar( "HUNTER_KILL_BONUS", "20", FCVAR_REPLICATED)
 
 -- Whether or not we include grenade launcher ammo (default: 1)
-CreateConVar( "WEAPONS_ALLOW_GRENADE", "1", FCVAR_REPLICATED)
+CreateConVar( "WEAPONS_ALLOW_GRENADE", "0", FCVAR_REPLICATED)
 
 CreateConVar( "GRENADES_FOR_KILL", "1", FCVAR_REPLICATED, "Give SMG grenades for prop kills. Number indicates how many times it can happen each round")
 

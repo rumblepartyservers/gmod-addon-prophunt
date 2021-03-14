@@ -28,9 +28,7 @@ function CLASS:Loadout(pl)
  	 
  	if pl:HasWeapon(cl_defaultweapon) then 
  		pl:SelectWeapon(cl_defaultweapon)
- 	end 
-
-	
+ 	end
 end
 
 
