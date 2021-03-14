@@ -4,7 +4,7 @@ CreateConVar( "ph_debug", "0", FCVAR_REPLICATED)
 -- Include the needed files
 include("sh_init.lua")
 include("cl_tauntmenu.lua")
-include("cl_overrides.lua")
+--include("cl_overrides.lua")
 include("cl_debug.lua")
 --include("cl_hints.lua")
 
@@ -152,7 +152,7 @@ function GM:HUDDrawTargetID()
 end
 
 -- Decides where  the player view should be (forces third person for props)
-function GM:CalcView(pl, origin, angles, fov)
+function GM:CalcView(pl, origin, angles, fov, znear, zfar)
 	local view = {} 
 	
 	if blind then
@@ -169,25 +169,62 @@ function GM:CalcView(pl, origin, angles, fov)
  	
  	-- Give the active weapon a go at changing the viewmodel position 
 	if pl:Team() == TEAM_PROPS && pl:Alive() then
-		for _,pr in pairs(ents.FindByClass("ph_prop")) do
+		local prop = nil
+
+		for _, pr in pairs(ents.FindByClass("ph_prop")) do
 			if pr:GetOwner() == pl then
 				pr:SetPos(pl:GetPos() - Vector(0, 0, pr:OBBMins().z))
+				prop = pr
 				break
 			end
 		end
 
-		-- old
-		-- view.origin = origin + Vector(0, 0, hullz - 60) + (angles:Forward() * -80)
+		if not prop then
+			-- Should never get in here
+			return view
+		end
 
-		local trace = {}
+		local wall_offset = 2
+		local min_start_pos_z = prop:GetPos().z - prop:OBBMins().z
 
-		trace.start = origin + Vector(0, 0, hullz - 60)
-		trace.endpos = origin + Vector(0, 0, hullz - 60) + (angles:Forward() * -80)
-		trace.filter = ents.FindByClass("ph_prop")
-		table.insert(trace.filter, pl)
+		local start_pos = origin + Vector(0, 0, hullz - 60)
+		local end_pos = start_pos - (angles:Forward() * 80)
 
-		local tr = util.TraceLine(trace)
-		view.origin = tr.HitPos
+		if (start_pos.z < min_start_pos_z) then
+			-- So the camera won't fall through the ground
+			start_pos.z = min_start_pos_z + 2
+		end
+		
+		local trace = {
+			start = start_pos,
+			endpos = end_pos,
+			filter = function(ent)
+				local filter = {
+					  "worldspawn"
+					, "ph_prop"
+					, "player"
+					--, "prop_physics" -- this one
+					--, "prop_dynamic" -- and this one are usually props on the map
+					
+					--, "phys_bone_follower"
+					--, "prop_ragdoll"
+					--, "gmod_"
+				}
+
+				local class = ent:GetClass()
+
+				if (table.HasValue(filter, class)) then
+					return false
+				end
+
+				return true
+			end,
+			mins = Vector(-wall_offset, -wall_offset, -wall_offset),
+			maxs = Vector(wall_offset, wall_offset, wall_offset),
+		}
+		
+		local result = util.TraceHull(trace)
+		view.origin = result.Hit && result.HitPos || end_pos
 	elseif pl:Team() == TEAM_HUNTERS && pl:Alive() then
 	 	local wep = pl:GetActiveWeapon() 
 	 	if wep && wep != NULL then 
@@ -195,7 +232,7 @@ function GM:CalcView(pl, origin, angles, fov)
 	 		if func then 
 	 			view.vm_origin, view.vm_angles = func(wep, origin*1, angles*1) -- Note: *1 to copy the object so the child function can't edit it. 
 	 		end
-	 		 
+	 		
 	 		local func = wep.CalcView 
 	 		if func then 
 	 			view.origin, view.angles, view.fov = func(wep, pl, origin*1, angles*1, fov) -- Note: *1 to copy the object so the child function can't edit it. 
@@ -203,7 +240,7 @@ function GM:CalcView(pl, origin, angles, fov)
 	 	end
 	end
  	
- 	return view 
+ 	return view
 end
 
 local SpecCPerm = {
