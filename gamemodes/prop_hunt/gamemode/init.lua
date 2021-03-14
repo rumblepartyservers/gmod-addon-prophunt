@@ -18,7 +18,7 @@ util.AddNetworkString("PlayTaunt")
 util.AddNetworkString("ph_crossh") 
 
 -- Send the required lua files to the client
-AddCSLuaFile("cl_overrides.lua")
+--AddCSLuaFile("cl_overrides.lua")
 include("sv_debug.lua")
 AddCSLuaFile("cl_init.lua")
 AddCSLuaFile("sh_config.lua")
